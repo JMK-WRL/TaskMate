@@ -1,10 +1,13 @@
 # run.py
+import os
+from app import app
+from flask import Flask, render_template
 
-from app import create_app, db
+app = Flask(__name__)
 
-app = create_app()
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()  # Create database tables if they don't exist
     app.run(debug=True)

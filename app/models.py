@@ -37,3 +37,8 @@ class Review(db.Model):
     comment = db.Column(db.Text)
     reviewer_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
+
+class Payment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    amount = db.Column(db.Float, nullable=False)
+    method = db.Column(db.String(50), nullable=False)

@@ -1,0 +1,11 @@
+<!-- templates/task_creation.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div x-data="{ isOpen: false }">
+    <button @click="isOpen = !isOpen">Toggle</button>
+    <div x-show="isOpen">
+        <!-- Your task creation form or content here -->
+    </div>
+</div>
+{% endblock %}

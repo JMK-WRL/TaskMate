@@ -1,12 +1,14 @@
+# app/__init__.py
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
+from .config import Config  # Adjusted import statement
 
 app = Flask(__name__)
-app.config.from_pyfile('config.py')
-
+app.config.from_object(Config)  # Changed from `from_pyfile` to `from_object`
 db = SQLAlchemy(app)
+
 migrate = Migrate(app, db)
 
 CORS(app)
